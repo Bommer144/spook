@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skolans språk! :)</title>
+    <style>
+        body {
+            background-color: #444; /* Dark grey background */
+            color: white; /* White text color */
+            position: relative;
+        }
+
+        textarea, input[type="password"] {
+            background-color: #666; /* Darker grey background for text boxes */
+            color: white; /* White text color */
+        }
+
+        #spinImage {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 70px;
+            height: 70px;
+            animation: spin 4s linear infinite; /* Rotate the image continuously */
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        function caesarCipherEncrypt(message, password) {
+            if (password !== "Fat") {
+                alert("Incorrect password. Please enter the correct password to encrypt.");
+                return;
+            }
+            var shift = Math.floor(Math.random() * 25) + 1;  // Generate a random shift value between 1 and 25
+            var encryptedMessage = "";
+            for (var i = 0; i < message.length; i++) {
+                var char = message[i];
+                if (/[a-zA-Z]/.test(char)) {
+                    var isUpperCase = char === char.toUpperCase();
+                    var charCode = char.toLowerCase().charCodeAt(0);
+                    var shiftedCharCode;
+                    if (char === 'å') {
+                        shiftedCharCode = (charCode - 229 + shift) % 26 + 229;
+                    } else if (char === 'ä') {
+                        shiftedCharCode = (charCode - 228 + shift) % 26 + 228;
+                    } else if (char === 'ö') {
+                        shiftedCharCode = (charCode - 246 + shift) % 26 + 246;
+                    } else {
+                        shiftedCharCode = (charCode - 97 + shift) % 26 + 97;
+                    }
+                    var shiftedChar = String.fromCharCode(shiftedCharCode).toUpperCase();
+                    encryptedMessage += isUpperCase ? shiftedChar : shiftedChar.toLowerCase();
+                } else {
+                    encryptedMessage += char;
+                }
+            }
+            // Encrypt the shift value
+            var encryptedShift = String.fromCharCode((shift + 65) % 26 + 65);
+            encryptedMessage += encryptedShift;  // Add the encrypted shift value
+            return encryptedMessage;
+        }
+
+        function caesarCipherDecrypt(encryptedMessage, password) {
+            if (password !== "Fat") {
+                alert("Incorrect password. Please enter the correct password to decrypt.");
+                return;
+            }
+            var message = encryptedMessage.slice(0, -1);  // Remove the encrypted shift value from the end
+            var encryptedShift = encryptedMessage.slice(-1);  // Extract the encrypted shift value
+            var shift = (encryptedShift.charCodeAt(0) - 65 - 65) % 26;  // Decrypt the shift value
+            var decryptedMessage = "";
+            for (var i = 0; i < message.length; i++) {
+                var char = message[i];
+                if (/[a-zA-Z]/.test(char)) {
+                    var isUpperCase = char === char.toUpperCase();
+                    var charCode = char.toLowerCase().charCodeAt(0);
+                    var shiftedCharCode;
+                    if (char === 'å') {
+                        shiftedCharCode = (charCode - 229 - shift + 26) % 26 + 229;
+                    } else if (char === 'ä') {
+                        shiftedCharCode = (charCode - 228 - shift + 26) % 26 + 228;
+                    } else if (char === 'ö') {
+                        shiftedCharCode = (charCode - 246 - shift + 26) % 26 + 246;
+                    } else {
+                        shiftedCharCode = (charCode - 97 - shift + 26) % 26 + 97;
+                    }
+                    var shiftedChar = String.fromCharCode(shiftedCharCode).toUpperCase();
+                    decryptedMessage += isUpperCase ? shiftedChar : shiftedChar.toLowerCase();
+                } else {
+                    decryptedMessage += char;
+                }
+            }
+            return decryptedMessage;
+        }
+
+        function encryptOrDecrypt(mode) {
+            var message = document.getElementById('message').value;
+            var password = document.getElementById('password').value;
+            var result;
+            if (mode === 'encrypt') {
+                result = caesarCipherEncrypt(message, password);
+            } else if (mode === 'decrypt') {
+                result = caesarCipherDecrypt(message, password);
+            }
+            if (result !== undefined) {
+                document.getElementById('result').textContent = result;
+            }
+        }
+    </script>
+</head>
+<body>
+    <img id="spinImage" src="https://i.pinimg.com/236x/91/ce/98/91ce98cec1df0f769321571724f1f312.jpg" alt="Spinning image">
+    <h1>Skolans språk! :)</h1>
+
+    <label for="message">Enter your message:</label><br>
+    <textarea id="message" rows="4" cols="50"></textarea><br>
+
+    <label for="password">Enter the password:</label><br>
+    <input type="password" id="password"><br>
+
+    <input type="button" value="Encrypt" onclick="encryptOrDecrypt('encrypt')">
+    <input type="button" value="Decrypt" onclick="encryptOrDecrypt('decrypt')"><br>
+
+    <p id="result"></p>
+</body>
+</html>
