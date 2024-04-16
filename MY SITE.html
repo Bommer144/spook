@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skolans språk! :)</title>
+    <title>Matte hjälp</title>
     <style>
         body {
             background-color: #444; /* Dark grey background */
@@ -56,6 +56,10 @@
                     }
                     var shiftedChar = String.fromCharCode(shiftedCharCode).toUpperCase();
                     encryptedMessage += isUpperCase ? shiftedChar : shiftedChar.toLowerCase();
+                } else if (/[0-9]/.test(char)) {
+                    var digit = parseInt(char);
+                    var encryptedDigit = (digit + 1) % 10; // Encrypt number by adding 1 and wrapping around if necessary
+                    encryptedMessage += encryptedDigit.toString();
                 } else {
                     encryptedMessage += char;
                 }
@@ -63,6 +67,10 @@
             // Encrypt the shift value
             var encryptedShift = String.fromCharCode((shift + 65) % 26 + 65);
             encryptedMessage += encryptedShift;  // Add the encrypted shift value
+            
+            // Reset password field
+            document.getElementById('password').value = "";
+            
             return encryptedMessage;
         }
 
@@ -92,10 +100,18 @@
                     }
                     var shiftedChar = String.fromCharCode(shiftedCharCode).toUpperCase();
                     decryptedMessage += isUpperCase ? shiftedChar : shiftedChar.toLowerCase();
+                } else if (/[0-9]/.test(char)) {
+                    var digit = parseInt(char);
+                    var decryptedDigit = (digit + 9) % 10; // Decrypt number by subtracting 1 and wrapping around if necessary
+                    decryptedMessage += decryptedDigit.toString();
                 } else {
                     decryptedMessage += char;
                 }
             }
+            
+            // Reset password field
+            document.getElementById('password').value = "";
+            
             return decryptedMessage;
         }
 
@@ -116,7 +132,7 @@
 </head>
 <body>
     <img id="spinImage" src="https://i.pinimg.com/236x/91/ce/98/91ce98cec1df0f769321571724f1f312.jpg" alt="Spinning image">
-    <h1>Skolans språk! :)</h1>
+    <h1>Matte hjälp</h1>
 
     <label for="message">Enter your message:</label><br>
     <textarea id="message" rows="4" cols="50"></textarea><br>
