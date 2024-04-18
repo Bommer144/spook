@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matte hjälp</title>
+    <title>Mattex hjälp</title>
     <style>
         body {
-            background-color: #444; /* Dark grey background */
-            color: white; /* White text color */
+            background-color: #2c3832; /* Dark grey background */
+            color: rgb(84, 255, 135); /* White text color */
             position: relative;
         }
 
@@ -22,9 +22,16 @@
             right: 10px;
             width: 70px;
             height: 70px;
-            animation: spin 4s linear infinite; /* Rotate the image continuously */
+            animation: spin 7s linear infinite; /* Rotate the image continuously */
         }
-
+        #password-image {
+            position: absolute;
+            top: calc(100% + -50px); /* Adjust this value to move the image up/down */
+            right: 1600px; /* Adjust this value to move the image left/right */
+            width: 100px;
+            height: 100px;
+            transform: rotate(30deg);       
+        }
         @keyframes spin {
             100% {
                 transform: rotate(360deg);
@@ -33,7 +40,7 @@
     </style>
     <script>
         function caesarCipherEncrypt(message, password) {
-            if (password !== "Fat") {
+            if (password !== (xxx)) {
                 alert("Incorrect password. Please enter the correct password to encrypt.");
                 return;
             }
@@ -73,9 +80,9 @@
             
             return encryptedMessage;
         }
-
+        var xxx = "fat";
         function caesarCipherDecrypt(encryptedMessage, password) {
-            if (password !== "Fat") {
+            if (password !== (xxx)) {
                 alert("Incorrect password. Please enter the correct password to decrypt.");
                 return;
             }
@@ -131,7 +138,8 @@
     </script>
 </head>
 <body>
-    <img id="spinImage" src="https://i.pinimg.com/236x/91/ce/98/91ce98cec1df0f769321571724f1f312.jpg" alt="Spinning image">
+    <img id="spinImage" src="https://i.ibb.co/sgnnfLD/old-me.webp" alt="Spinning image">
+    <img id="password-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Cannabis_leaf_2.svg/946px-Cannabis_leaf_2.svg.png" alt="Password image">
     <h1>Matte hjälp</h1>
 
     <label for="message">Enter your message:</label><br>
