@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/YOUR_PATH/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAP0o2//9KNv//AAAAPwAAAD8AAAA/AAAAPwAAAD9KNv//Sjb//wAAAD8AAAA/AAAAP0o2//9KNv//AAAAPwAAAD9KNv//Sjb//wAAAD8AAAA/Sjb//0o2//8AAAA/AAAAPwAAAD8AAAA/Sjb//0o2//8AAAA/AAAAPwAAAD9KNv//Sjb//wAAAD8AAAA/Sjb//0o2//9KNv//Sjb//wAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAP0o2//9KNv//AAAAPwAAAD8AAAA/Sjb//0o2//8AAAA/AAAAP0o2//9KNv//Sjb//0o2//8AAAA/AAAAPwAAAD9KNv//Sjb//0o2//8AAAA/AAAAP0o2//9KNv//AAAAPwAAAD9KNv//Sjb//0o2//8AAAA/Sjb//0o2//9KNv//Sjb//wAAAD9KNv//Sjb//0o2//9KNv//Sjb//wAAAD8AAAA/Sjb//0o2//8AAAA/AAAAPwAAAD9KNv//Sjb//wAAAD8AAAA/AAAAP0o2//9KNv//AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA///8AAJ85AACfOQAAnzkAAJ85AACfOQAAnzkAAJ45AACeeQAAnnMAAA5zAAAOMwAAEIMAADnPAAD//wAA//8AAA==" rel="icon" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matte hjälp</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <img id="spinImage" src="https://play-lh.googleusercontent.com/3hkaQ97KCRLUp9f03ydeRRFli6tDoIF4EJ3GMTQzMSMgBb2oINLIThGpQwd5fJdJrQ=w240-h480-rw" alt="Spinning image">
+    <h1 style="font-family: 'Arial Black', sans-serif;">Matte hjälp</h1>
+    <label for="message">Enter your message:</label><br>
+    <textarea id="message" rows="4" cols="50"></textarea><br>
+
+    <label for="password">Math equation:</label><br>
+    <input type="password" id="password"><br>
+
+    <input type="button" value="Encrypt" onclick="encryptOrDecrypt('encrypt')" style="font-size: 150%;">
+    <input type="button" value="Decrypt" onclick="encryptOrDecrypt('decrypt')" style="font-size: 150%;"><br>
+
+    <p id="result"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>

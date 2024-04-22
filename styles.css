@@ -1,0 +1,48 @@
+body {
+    background: linear-gradient(to top, #272731, #717080); /* Green gradient background */
+    color: #fff; /* White text color */
+    font-family: Arial, sans-serif; /* Change font family for better readability */
+    padding: 20px; /* Add some padding for better spacing */
+    margin: 0; /* Remove default margin */
+    height: 100vh; /* Set height to 100% of viewport height */
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+}
+
+textarea, input[type="password"] {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background for text boxes */
+    color: #fff; /* White text color */
+    border: 2px solid #fff; /* Add white border */
+    padding: 10px; /* Add padding */
+    margin-bottom: 10px; /* Add margin below text boxes */
+    outline: none; /* Remove default outline */
+}
+
+input[type="button"] {
+    background-color: #ffee99; /* Light yellow button color for contrast */
+    color: #333; /* Dark text color for better readability */
+    border: 2px solid #fff; /* Add white border */
+    padding: 10px 20px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-right: 10px; /* Add margin between buttons */
+    outline: none; /* Remove default outline */
+}
+input[type="button"]:hover {
+    background-color: #fff8dc; /* Lighter yellow color on hover */
+}
+#spinImage {
+    position: absolute;
+    top: 30px;
+    left: 250px;
+    width: 70px;
+    height: 70px;
+    animation: spin 7s linear infinite; /* Rotate */
+}
+input[type="button"]:hover {
+    background-color: #fff8dc; /* Lighter yellow color on hover */
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
